@@ -2,7 +2,7 @@ package com.example.jds_component.color
 
 import androidx.compose.ui.graphics.Color
 
-object JDS {
+object JDSColor {
     val MAIN = Color(0xFF1243F1)
     val Black = Color(0xFF333333)
     val WHITE = Color(0xFFFFFFFF)
