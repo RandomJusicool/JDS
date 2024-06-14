@@ -9,8 +9,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jds_component.color.JDS
+import com.example.jds_component.color.JDSColor
 import com.example.jds_component.modifier.clickableSingle.clickableSingle
 import com.example.jds_component.typography.JDSTypography
 
@@ -25,11 +26,11 @@ fun JDSOutlinedButton(
         modifier = modifier
             .border(
                 width = 1.dp,
-                color = if (enabled) JDS.MAIN else JDS.GRAY1,
+                color = if (enabled) JDSColor.MAIN else JDSColor.GRAY1,
                 shape = RoundedCornerShape(size = 12.dp)
             )
             .background(
-                color = JDS.WHITE,
+                color = JDSColor.WHITE,
                 shape = RoundedCornerShape(size = 12.dp)
             )
             .clickableSingle(
@@ -41,8 +42,17 @@ fun JDSOutlinedButton(
     ) {
         Text(
             text = text,
-            color = if (enabled) JDS.MAIN else JDS.GRAY2,
+            color = if (enabled) JDSColor.MAIN else JDSColor.GRAY2,
             style = JDSTypography.bodyMedium,
         )
+    }
+}
+
+@Preview
+@Composable
+fun JDSOutlinedButtonPreview() {
+    Column {
+        JDSOutlinedButton(text = "text", enabled = true, onClick = {})
+        JDSOutlinedButton(text = "text", enabled = false, onClick = {})
     }
 }

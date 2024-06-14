@@ -46,5 +46,8 @@ fun JDSButton(
 @Preview
 @Composable
 fun JDSButtonPreview() {
-    JDSButton(text = "text", enabled = true, onClick = {})
+    Column {
+        JDSButton(text = "text", enabled = true, onClick = {})
+        JDSButton(text = "text", enabled = false, onClick = {})
+    }
 }
