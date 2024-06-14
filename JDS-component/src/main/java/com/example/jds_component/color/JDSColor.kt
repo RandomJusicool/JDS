@@ -18,7 +18,7 @@ object JDSColor {
     val GRAY100 = Color(0xFFF5F6F8)
 
     val GRAY2 = Color(0xFFA3A3A3)
-    val GRAY1 = Color(0xFFD1D1D1)
+    val GRAY1 = Color(0xFFB9B9BC)
 
     val SYSTEM = Color(0xFFDF454A)
 }
