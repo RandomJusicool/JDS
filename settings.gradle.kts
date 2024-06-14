@@ -20,5 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "JDS"
-include(":app")
 include(":JDS-component")
