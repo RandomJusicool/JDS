@@ -4,13 +4,16 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jds_component.color.JDS
+import com.example.jds_component.color.JDSColor
 import com.example.jds_component.modifier.clickableSingle.clickableSingle
 import com.example.jds_component.typography.JDSTypography
 
@@ -19,17 +22,20 @@ fun JDSOutlinedButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean,
+    textColor: Color = JDSColor.MAIN,
+    borderColor: Color = JDSColor.MAIN,
+    backgroundColor: Color = JDSColor.WHITE,
     onClick: () -> Unit,
 ) {
     Column(
         modifier = modifier
             .border(
                 width = 1.dp,
-                color = if (enabled) JDS.MAIN else JDS.GRAY1,
+                color = borderColor,
                 shape = RoundedCornerShape(size = 12.dp)
             )
             .background(
-                color = JDS.WHITE,
+                color = backgroundColor,
                 shape = RoundedCornerShape(size = 12.dp)
             )
             .clickableSingle(
@@ -41,8 +47,45 @@ fun JDSOutlinedButton(
     ) {
         Text(
             text = text,
-            color = if (enabled) JDS.MAIN else JDS.GRAY2,
+            color = textColor,
             style = JDSTypography.bodyMedium,
+        )
+    }
+}
+
+@Preview
+@Composable
+fun JDSOutlinedButtonPreview() {
+    Column {
+        JDSOutlinedButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = true,
+            onClick = {}
+        )
+        JDSOutlinedButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = false,
+            onClick = {}
+        )
+        JDSOutlinedButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = true,
+            textColor = JDSColor.SYSTEM,
+            backgroundColor = JDSColor.MAIN,
+            borderColor = JDSColor.Black,
+            onClick = {}
+        )
+        JDSOutlinedButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = false,
+            textColor = JDSColor.SYSTEM,
+            backgroundColor = JDSColor.MAIN,
+            borderColor = JDSColor.Black,
+            onClick = {}
         )
     }
 }

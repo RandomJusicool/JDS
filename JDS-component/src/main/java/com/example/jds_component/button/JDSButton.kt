@@ -3,28 +3,32 @@ package com.example.jds_component.button
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jds_component.color.JDS
+import com.example.jds_component.color.JDSColor
 import com.example.jds_component.modifier.clickableSingle.clickableSingle
 import com.example.jds_component.typography.JDSTypography
-
 
 @Composable
 fun JDSButton(
     modifier: Modifier = Modifier,
     text: String,
-    enabled: Boolean,
+    enabled: Boolean = true,
+    textColor: Color = JDSColor.WHITE,
+    backgroundColor: Color = JDSColor.MAIN,
     onClick: () -> Unit,
 ) {
     Column(
         modifier = modifier
             .background(
-                color = if (enabled) JDS.MAIN else JDS.GRAY300,
+                color = backgroundColor,
                 shape = RoundedCornerShape(size = 12.dp)
             )
             .clickableSingle(
@@ -36,8 +40,43 @@ fun JDSButton(
     ) {
         Text(
             text = text,
-            color = if (enabled) JDS.WHITE else JDS.GRAY600,
+            color = textColor,
             style = JDSTypography.bodyMedium,
+        )
+    }
+}
+
+@Preview
+@Composable
+fun JDSButtonPreview() {
+    Column {
+        JDSButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = true,
+            onClick = {}
+        )
+        JDSButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = false,
+            onClick = {}
+        )
+        JDSButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = true,
+            textColor = JDSColor.SYSTEM,
+            backgroundColor = JDSColor.MAIN,
+            onClick = {}
+        )
+        JDSButton(
+            modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
+            text = "text",
+            enabled = false,
+            textColor = JDSColor.SYSTEM,
+            backgroundColor = JDSColor.MAIN,
+            onClick = {}
         )
     }
 }
