@@ -17,7 +17,7 @@ fun RightArrowIcon(
 ) {
     Icon(
         painter = painterResource(id = R.drawable.right_arrow_icon),
-        contentDescription = "MindWay Main Icon",
+        contentDescription = null,
         modifier = modifier.size(24.dp),
         tint = tint
     )

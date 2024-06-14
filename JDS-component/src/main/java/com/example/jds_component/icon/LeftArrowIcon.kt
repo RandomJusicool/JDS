@@ -17,7 +17,7 @@ fun LeftArrowIcon(
 ) {
     Icon(
         painter = painterResource(id = R.drawable.left_arrow_icon),
-        contentDescription = "MindWay Main Icon",
+        contentDescription = null,
         modifier = modifier.size(24.dp),
         tint = tint
     )
@@ -25,6 +25,6 @@ fun LeftArrowIcon(
 
 @Preview
 @Composable
-private fun Preview(){
+private fun Preview() {
     LeftArrowIcon()
 }

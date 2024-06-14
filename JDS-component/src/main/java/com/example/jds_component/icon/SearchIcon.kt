@@ -17,7 +17,7 @@ fun SearchIcon(
 ) {
     Icon(
         painter = painterResource(id = R.drawable.search_icon),
-        contentDescription = "MindWay Main Icon",
+        contentDescription = null,
         modifier = modifier.size(24.dp),
         tint = tint
     )

@@ -17,7 +17,7 @@ fun ProfileIcon(
 ) {
     Icon(
         painter = painterResource(id = R.drawable.profile_icon),
-        contentDescription = "MindWay Main Icon",
+        contentDescription = null,
         modifier = modifier.size(24.dp),
         tint = tint
     )
