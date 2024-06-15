@@ -29,6 +29,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+
     - name: Build with Gradle
       run: ./gradlew build --no-daemon --info
 
@@ -42,4 +45,3 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:kotlin"
-
