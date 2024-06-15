@@ -19,9 +19,9 @@ val JDSTypography = Typography(
     labelSmall = TextStyle( // Sub Title
         fontSize = 18.sp,
         fontFamily = pretendard,
-        fontWeight = FontWeight.SemiBold,
         lineHeight = 27.sp,
-        textAlign = TextAlign.Center
+        fontWeight = FontWeight.SemiBold,
+        textAlign = TextAlign.Center,
     ),
     titleLarge = TextStyle(
         fontSize = 48.sp,
