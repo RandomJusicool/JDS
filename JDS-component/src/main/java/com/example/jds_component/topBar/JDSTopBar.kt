@@ -58,34 +58,6 @@ fun JDSMainTopBar(
     }
 }
 
-@Composable
-fun JDSTopBar(
-    modifier: Modifier = Modifier,
-    startIcon: @Composable () -> Unit,
-    betweenText: String = "",
-    endIcon: @Composable () -> Unit = { Spacer(modifier = Modifier.size(24.dp)) }
-) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier
-            .fillMaxWidth()
-            .height(56.dp)
-            .padding(
-                horizontal = 24.dp,
-                vertical = 16.dp
-            )
-    ) {
-        startIcon()
-        Text(
-            text = betweenText,
-            style = JDSTypography.labelSmall,
-            color = JDSColor.Black
-        )
-        endIcon()
-    }
-}
-
 @Preview
 @Composable
 private fun JDSTopBarPreview() {
@@ -94,10 +66,6 @@ private fun JDSTopBarPreview() {
             startIcon = { LogoImage() },
             betweenIcon = { SearchIcon() },
             endIcon = { ProfileIcon() }
-        )
-        JDSTopBar(
-            startIcon = { LeftArrowIcon() },
-            betweenText = "마이크로소프트"
         )
     }
 }
