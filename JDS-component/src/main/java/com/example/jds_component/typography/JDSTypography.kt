@@ -71,5 +71,5 @@ val JDSTypography = Typography(
         lineHeight = 18.sp,
         fontWeight = FontWeight.Normal,
         textAlign = TextAlign.Center,
-    ),
+    )
 )
