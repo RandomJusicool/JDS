@@ -5,6 +5,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -40,9 +42,9 @@ fun JDSTextField(
     outlineColor: Color,
     backgroudColor: Color = JDSColor.WHITE,
     isEnabled: Boolean = true,
-    isError:Boolean = false,
+    isError: Boolean = false,
     supportTextClick: Boolean = false,
-    visualTransformation: Boolean = false,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextChange: (String) -> Unit,
     onClickSupportText: () -> Unit = {}
 ) {
@@ -54,12 +56,12 @@ fun JDSTextField(
         verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.Top),
         horizontalAlignment = Alignment.Start,
         modifier = modifier
-            .height(100.dp)
-            .width(312.dp)
+            .fillMaxHeight()
+            .fillMaxWidth()
     ) {
         Text(
             text = text,
-            color = if(isError)JDSColor.SYSTEM else JDSColor.Black,
+            color = if (isError) JDSColor.SYSTEM else JDSColor.Black,
             style = JDSTypography.bodySmall
         )
 
@@ -67,21 +69,29 @@ fun JDSTextField(
             value = textState,
             onValueChange = { newText -> currentOnTextChange(newText) },
             enabled = isEnabled,
-            modifier = modifier
+            modifier = Modifier
                 .border(
                     width = 1.dp,
                     color = if (isFocused.value && outlineColor == JDSColor.GRAY200) JDSColor.MAIN else outlineColor,
                     shape = RoundedCornerShape(size = 8.dp)
                 )
                 .height(54.dp)
-                .width(312.dp)
-                .background(color = backgroudColor, shape = RoundedCornerShape(size = 8.dp))
-                .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
+                .fillMaxWidth()
+                .background(
+                    color = backgroudColor,
+                    shape = RoundedCornerShape(size = 8.dp)
+                )
+                .padding(
+                    start = 16.dp,
+                    top = 16.dp,
+                    end = 16.dp,
+                    bottom = 16.dp
+                )
                 .focusRequester(focusRequester)
                 .onFocusChanged { focusState ->
                     isFocused.value = focusState.isFocused
                 },
-            visualTransformation = if (visualTransformation) PasswordVisualTransformation() else VisualTransformation.None,
+            visualTransformation = visualTransformation,
             decorationBox = { innerTextField ->
                 Column(
                     verticalArrangement = Arrangement.Center
@@ -100,11 +110,14 @@ fun JDSTextField(
 
         Text(
             text = supportText,
-            color = if(isError) JDSColor.SYSTEM else JDSColor.MAIN,
+            color = if (isError) JDSColor.SYSTEM else JDSColor.MAIN,
             style = JDSTypography.labelLarge,
-            modifier = if (!isError) modifier
+            modifier = if (!isError) Modifier
                 .align(Alignment.End)
-                .clickableSingle(enabled = supportTextClick, onClick = onClickSupportText) else modifier
+                .clickableSingle(
+                    enabled = supportTextClick,
+                    onClick = onClickSupportText
+                ) else Modifier
         )
     }
 }
@@ -116,7 +129,9 @@ fun JDSTextFieldPreview() {
 
     Column {
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY200,
@@ -125,7 +140,9 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.MAIN,
@@ -134,7 +151,9 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY300,
@@ -145,7 +164,9 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
@@ -156,17 +177,21 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY200,
             textState = textState,
             onTextChange = onTextChange,
-            visualTransformation = true
+            visualTransformation = PasswordVisualTransformation()
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
@@ -176,7 +201,9 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier,
+            modifier = Modifier
+                .width(312.dp)
+                .height(100.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
