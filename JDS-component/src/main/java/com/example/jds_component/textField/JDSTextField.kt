@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -25,25 +24,27 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import com.example.jds_component.color.JDSColor
+import com.example.jds_component.modifier.clickableSingle.clickableSingle
 import com.example.jds_component.typography.JDSTypography
 
 @Composable
 fun JDSTextField(
-    height: Dp,
-    width: Dp,
+    modifier: Modifier = Modifier,
     text: String,
     supportText: String = "",
     textFieldInfo: String,
     textState: String,
-    onTextChange: (String) -> Unit,
     outlineColor: Color,
-    textColor: Color = JDSColor.Black,
     backgroudColor: Color = JDSColor.WHITE,
-    supportTextColor: Color = JDSColor.WHITE,
     isEnabled: Boolean = true,
-    supportTextClick: Boolean = false
+    isError:Boolean = false,
+    supportTextClick: Boolean = false,
+    visualTransformation: Boolean = false,
+    onTextChange: (String) -> Unit,
+    onClickSupportText: () -> Unit = {}
 ) {
     val focusRequester = remember { FocusRequester() }
     val isFocused = remember { mutableStateOf(false) }
@@ -52,13 +53,13 @@ fun JDSTextField(
     Column(
         verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.Top),
         horizontalAlignment = Alignment.Start,
-        modifier = Modifier
-            .width(width)
-            .height(height)
+        modifier = modifier
+            .height(100.dp)
+            .width(312.dp)
     ) {
         Text(
             text = text,
-            color = textColor,
+            color = if(isError)JDSColor.SYSTEM else JDSColor.Black,
             style = JDSTypography.bodySmall
         )
 
@@ -66,22 +67,25 @@ fun JDSTextField(
             value = textState,
             onValueChange = { newText -> currentOnTextChange(newText) },
             enabled = isEnabled,
-            modifier = Modifier
+            modifier = modifier
                 .border(
                     width = 1.dp,
                     color = if (isFocused.value && outlineColor == JDSColor.GRAY200) JDSColor.MAIN else outlineColor,
                     shape = RoundedCornerShape(size = 8.dp)
                 )
-                .width(width)
-                .height(height - 46.dp)
+                .height(54.dp)
+                .width(312.dp)
                 .background(color = backgroudColor, shape = RoundedCornerShape(size = 8.dp))
                 .padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
                 .focusRequester(focusRequester)
                 .onFocusChanged { focusState ->
                     isFocused.value = focusState.isFocused
                 },
+            visualTransformation = if (visualTransformation) PasswordVisualTransformation() else VisualTransformation.None,
             decorationBox = { innerTextField ->
-                Row {
+                Column(
+                    verticalArrangement = Arrangement.Center
+                ) {
                     if (textState.isEmpty()) {
                         Text(
                             text = textFieldInfo,
@@ -96,11 +100,11 @@ fun JDSTextField(
 
         Text(
             text = supportText,
-            color = supportTextColor,
+            color = if(isError) JDSColor.SYSTEM else JDSColor.MAIN,
             style = JDSTypography.labelLarge,
-            modifier = if (supportTextColor == JDSColor.MAIN) Modifier
+            modifier = if (!isError) modifier
                 .align(Alignment.End)
-                .clickable(enabled = supportTextClick) {} else Modifier
+                .clickableSingle(enabled = supportTextClick, onClick = onClickSupportText) else modifier
         )
     }
 }
@@ -108,79 +112,79 @@ fun JDSTextField(
 @Preview(showBackground = true)
 @Composable
 fun JDSTextFieldPreview() {
-    val textState = remember { mutableStateOf("") }
+    val (textState, onTextChange) = remember { mutableStateOf("") }
 
     Column {
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
             outlineColor = JDSColor.GRAY200,
-            textState = textState.value,
-            onTextChange = { textState.value = it }
+            textState = textState,
+            onTextChange = onTextChange
         )
 
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
             outlineColor = JDSColor.MAIN,
-            textState = textState.value,
-            onTextChange = { textState.value = it }
+            textState = textState,
+            onTextChange = onTextChange
         )
 
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
             outlineColor = JDSColor.GRAY300,
             backgroudColor = JDSColor.GRAY200,
             isEnabled = false,
-            textState = textState.value,
-            onTextChange = { textState.value = it }
+            textState = textState,
+            onTextChange = onTextChange
         )
 
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
             outlineColor = JDSColor.SYSTEM,
-            textColor = JDSColor.SYSTEM,
             supportText = "Error",
-            supportTextColor = JDSColor.SYSTEM,
-            textState = textState.value,
-            onTextChange = { textState.value = it }
+            isError = true,
+            textState = textState,
+            onTextChange = onTextChange
         )
 
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
+            outlineColor = JDSColor.GRAY200,
+            textState = textState,
+            onTextChange = onTextChange,
+            visualTransformation = true
+        )
+
+        JDSTextField(
+            modifier = Modifier,
+            text = "아이디",
+            textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
-            textColor = JDSColor.SYSTEM,
             supportText = "영문, 숫자, 특수문자 중 2개 이상의 조합으로 8글자 이상",
-            supportTextColor = JDSColor.MAIN,
-            textState = textState.value,
-            onTextChange = { textState.value = it }
+            textState = textState,
+            onTextChange = onTextChange
         )
 
         JDSTextField(
+            modifier = Modifier,
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            width = 312.dp,
-            height = 100.dp,
             outlineColor = JDSColor.SYSTEM,
-            textColor = JDSColor.SYSTEM,
             supportText = "이메일 수정하기",
-            supportTextColor = JDSColor.MAIN,
-            textState = textState.value,
-            onTextChange = { textState.value = it },
-            supportTextClick = true
+            textState = textState,
+            onTextChange = onTextChange,
+            supportTextClick = true,
+            onClickSupportText = {}
         )
     }
 }
