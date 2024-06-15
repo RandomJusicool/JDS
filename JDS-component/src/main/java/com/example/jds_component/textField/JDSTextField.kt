@@ -2,7 +2,6 @@ package com.example.jds_component.textField
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -56,8 +55,8 @@ fun JDSTextField(
         verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.Top),
         horizontalAlignment = Alignment.Start,
         modifier = modifier
-            .fillMaxHeight()
             .fillMaxWidth()
+            .height(100.dp)
     ) {
         Text(
             text = text,
@@ -129,9 +128,7 @@ fun JDSTextFieldPreview() {
 
     Column {
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY200,
@@ -140,9 +137,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.MAIN,
@@ -151,9 +146,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY300,
@@ -164,9 +157,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
@@ -177,9 +168,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.GRAY200,
@@ -189,9 +178,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
@@ -201,9 +188,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier
-                .width(312.dp)
-                .height(100.dp),
+            modifier = Modifier.width(312.dp),
             text = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
             outlineColor = JDSColor.SYSTEM,
