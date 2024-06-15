@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Stable
-fun Modifier.paddingVerticalAndSides(
+fun Modifier.paddingVertical(
     start: Dp = 0.dp,
     vertical: Dp = 0.dp,
     end: Dp = 0.dp,
@@ -17,7 +17,7 @@ fun Modifier.paddingVerticalAndSides(
     .padding(start = start, end = end)
 
 @Stable
-fun Modifier.paddingHorizontalAndTopBottom(
+fun Modifier.paddingHorizontal(
     top: Dp = 0.dp,
     horizontal: Dp = 0.dp,
     bottom: Dp = 0.dp,
