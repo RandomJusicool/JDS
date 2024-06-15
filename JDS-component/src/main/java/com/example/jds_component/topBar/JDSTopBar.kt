@@ -80,7 +80,6 @@ fun JDSTopBar(
         Text(
             text = betweenText,
             style = JDSTypography.labelSmall,
-            fontWeight = FontWeight.SemiBold,
             color = JDSColor.Black
         )
         endIcon()
