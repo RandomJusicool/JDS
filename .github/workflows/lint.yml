@@ -1,0 +1,24 @@
+name: Lint and Static Analysis
+
+on:
+  pull_request:
+    branches: []
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11' # 사용하는 Java 버전에 맞추세요.
+
+      - name: Run Detekt Linter
+        run: ./gradlew detektCheck
+
+      - name: Run Android Lint
+        run: ./gradlew lintDebug
