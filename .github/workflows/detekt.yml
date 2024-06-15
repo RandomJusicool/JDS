@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  DETEKT_RELEASE_TAG: v1.20.0  # Detekt의 최신 릴리스 태그로 업데이트
+  DETEKT_RELEASE_TAG: v1.20.0
 
 jobs:
   scan:
@@ -27,7 +27,9 @@ jobs:
         java-version: '17'
 
     - name: Install dependencies
-      run: ./gradlew dependencies
+      run: |
+        chmod +x ./gradlew
+        ./gradlew dependencies
 
     - name: Get Detekt download URL
       id: detekt_info
@@ -58,7 +60,7 @@ jobs:
         fi
 
         DETEKT_DOWNLOAD_URL=$(jq --raw-output '.data.repository.release.releaseAssets.nodes[0].downloadUrl' gh_response.json)
-        echo "download_url=$DETEKT_DOWNLOAD_URL" >> $GITHUB_OUTPUT
+        echo "download_url=$DETEKT_DOWNLOAD_URL" >> $GITHUB_ENV
 
     - name: Setup Detekt
       run: |
