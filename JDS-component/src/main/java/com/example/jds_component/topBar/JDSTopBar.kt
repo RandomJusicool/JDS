@@ -29,8 +29,8 @@ import com.example.jds_component.typography.JDSTypography
 fun JDSMainTopBar(
     modifier: Modifier = Modifier,
     startIcon: @Composable () -> Unit,
-    betweenIcon: @Composable () -> Unit = { Spacer(modifier = modifier.size(24.dp)) },
-    endIcon: @Composable () -> Unit = { Spacer(modifier = modifier.size(24.dp)) },
+    betweenIcon: @Composable () -> Unit = { Spacer(modifier = Modifier.size(24.dp)) },
+    endIcon: @Composable () -> Unit = { Spacer(modifier = Modifier.size(24.dp)) },
 ) {
     Box(
         modifier = modifier
@@ -43,16 +43,16 @@ fun JDSMainTopBar(
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.align(Alignment.CenterStart)
+            modifier = Modifier.align(Alignment.CenterStart)
         ) {
             startIcon()
         }
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = modifier.align(Alignment.CenterEnd)
+            modifier = Modifier.align(Alignment.CenterEnd)
         ) {
             betweenIcon()
-            Spacer(modifier = modifier.size(24.dp))
+            Spacer(modifier = Modifier.size(24.dp))
             endIcon()
         }
     }
@@ -63,7 +63,7 @@ fun JDSTopBar(
     modifier: Modifier = Modifier,
     startIcon: @Composable () -> Unit,
     betweenText: String = "",
-    endIcon: @Composable () -> Unit = { Spacer(modifier = modifier.size(24.dp)) }
+    endIcon: @Composable () -> Unit = { Spacer(modifier = Modifier.size(24.dp)) }
 ) {
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
