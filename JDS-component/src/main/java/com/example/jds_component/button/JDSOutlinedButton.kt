@@ -21,7 +21,7 @@ import com.example.jds_component.typography.JDSTypography
 fun JDSOutlinedButton(
     modifier: Modifier = Modifier,
     text: String,
-    enabled: Boolean,
+    enabled: Boolean = true,
     textColor: Color = JDSColor.MAIN,
     borderColor: Color = JDSColor.MAIN,
     backgroundColor: Color = JDSColor.WHITE,
