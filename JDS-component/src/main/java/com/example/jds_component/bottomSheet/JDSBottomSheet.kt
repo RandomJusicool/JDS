@@ -23,8 +23,8 @@ fun JDSBottomSheet(
     modifier: Modifier = Modifier,
     companyName: String,
     stockStatus: String,
-    button1: @Composable () -> Unit,
-    button2: @Composable () -> Unit,
+    primaryButton: @Composable () -> Unit,
+    secondaryButton: @Composable () -> Unit,
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterVertically),
@@ -55,8 +55,8 @@ fun JDSBottomSheet(
             verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            button1()
-            button2()
+            primaryButton()
+            secondaryButton()
         }
     }
 }
@@ -69,14 +69,14 @@ fun JDSBottomSheetPreview() {
         JDSBottomSheet(
             companyName = "회사 이름",
             stockStatus = "현재가 1주 50,000",
-            button1 = {
+            primaryButton = {
                 JDSButton(
                     modifier = Modifier
                         .fillMaxWidth(0.5f)
                         .fillMaxHeight(0.03f), text = "현재가 구매 하기"
                 ) {}
             },
-            button2 = {
+            secondaryButton = {
                 JDSButton(
                     modifier = Modifier
                         .fillMaxWidth(0.5f)
@@ -88,7 +88,7 @@ fun JDSBottomSheetPreview() {
         JDSBottomSheet(
             companyName = "회사 이름",
             stockStatus = "현재가 1주 50,000",
-            button1 = {
+            primaryButton = {
                 JDSOutlinedButton(
                     modifier = Modifier
                         .fillMaxWidth(0.5f)
@@ -96,7 +96,7 @@ fun JDSBottomSheetPreview() {
                     text = "현재가 구매 하기"
                 ) {}
             },
-            button2 = {
+            secondaryButton = {
                 JDSOutlinedButton(
                     modifier = Modifier
                         .fillMaxWidth(0.5f)
