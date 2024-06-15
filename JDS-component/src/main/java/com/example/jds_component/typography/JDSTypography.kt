@@ -16,14 +16,13 @@ val pretendard = FontFamily(
 )
 
 val JDSTypography = Typography(
-    labelSmall = TextStyle(
+    labelSmall = TextStyle( // Sub Title
         fontSize = 18.sp,
         fontFamily = pretendard,
         fontWeight = FontWeight.SemiBold,
         lineHeight = 27.sp,
         textAlign = TextAlign.Center
     ),
-
     titleLarge = TextStyle(
         fontSize = 48.sp,
         fontFamily = pretendard,
@@ -72,12 +71,5 @@ val JDSTypography = Typography(
         lineHeight = 18.sp,
         fontWeight = FontWeight.Normal,
         textAlign = TextAlign.Center,
-    ),
-    labelSmall = TextStyle( // Sub Title
-        fontSize = 18.sp,
-        fontFamily = pretendard,
-        lineHeight = 27.sp,
-        fontWeight = FontWeight.SemiBold,
-        textAlign = TextAlign.Center,
-    ),
+    )
 )
