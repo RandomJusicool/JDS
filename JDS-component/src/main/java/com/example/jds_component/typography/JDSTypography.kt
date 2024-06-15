@@ -59,9 +59,9 @@ val JDSTypography = Typography(
         textAlign = TextAlign.Center,
     ),
     labelLarge = TextStyle( //lable
-        fontSize = 14.sp,
+        fontSize = 12.sp,
         fontFamily = pretendard,
-        lineHeight = 21.sp,
+        lineHeight = 18.sp,
         fontWeight = FontWeight.Normal,
         textAlign = TextAlign.Center,
     )
