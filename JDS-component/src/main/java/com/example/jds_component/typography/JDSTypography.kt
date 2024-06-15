@@ -64,5 +64,12 @@ val JDSTypography = Typography(
         lineHeight = 21.sp,
         fontWeight = FontWeight.Normal,
         textAlign = TextAlign.Center,
-    )
+    ),
+    labelSmall = TextStyle( // Sub Title
+        fontSize = 18.sp,
+        fontFamily = pretendard,
+        lineHeight = 27.sp,
+        fontWeight = FontWeight.SemiBold,
+        textAlign = TextAlign.Center,
+    ),
 )
