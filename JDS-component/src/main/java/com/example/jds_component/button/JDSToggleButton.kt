@@ -2,8 +2,10 @@ package com.example.jds_component.button
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -19,6 +21,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.platform.LocalDensity
@@ -47,7 +50,7 @@ fun JDSToggleButton(
     onClick: () -> Unit,
     setIsSelected: (Boolean) -> Unit,
 ) {
-    val sizePx = with(LocalDensity.current) { (width-height).toPx() }
+    val sizePx = with(LocalDensity.current) { (width - height).toPx() }
     val anchors = mapOf(0f to 0, sizePx to 1)
     val coroutineScope = rememberCoroutineScope()
     val swipeableState = rememberSwipeableState(0, confirmStateChange = { newState ->
@@ -100,12 +103,16 @@ fun JDSToggleButton(
 @Composable
 fun JDSToggleButtonPreview() {
     val (isSelected, setIsSelected) = remember { mutableStateOf(false) }
-
-    JDSToggleButton(
-        height = 24.dp,
-        width = 43.dp,
-        isSelected = isSelected,
-        onClick = { },
-        setIsSelected = setIsSelected
-    )
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ){
+        JDSToggleButton(
+            height = 50.dp,
+            width = 200.dp,
+            isSelected = isSelected,
+            onClick = { },
+            setIsSelected = setIsSelected
+        )
+    }
 }
