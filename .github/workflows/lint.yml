@@ -3,7 +3,9 @@ name: Lint and Static Analysis
 on:
   pull_request:
     branches: []
-
+  push:
+    branches: []
+    
 jobs:
   lint:
     runs-on: ubuntu-latest
