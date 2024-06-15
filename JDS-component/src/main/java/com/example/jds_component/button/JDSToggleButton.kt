@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.ExperimentalWearMaterialApi
 import androidx.wear.compose.material.FractionalThreshold
+import androidx.wear.compose.material.Switch
 import androidx.wear.compose.material.rememberSwipeableState
 import androidx.wear.compose.material.swipeable
 import com.example.jds_component.color.JDSColor
@@ -38,6 +39,7 @@ import kotlin.math.roundToInt
 @OptIn(ExperimentalWearMaterialApi::class)
 @Composable
 fun JDSToggleButton(
+    modifier: Modifier = Modifier,
     height: Dp,
     width: Dp,
     isSelected: Boolean,
@@ -45,7 +47,7 @@ fun JDSToggleButton(
     onClick: () -> Unit,
     setIsSelected: (Boolean) -> Unit,
 ) {
-    val sizePx = with(LocalDensity.current) { (height - 6.dp).toPx() }
+    val sizePx = with(LocalDensity.current) { (width-height).toPx() }
     val anchors = mapOf(0f to 0, sizePx to 1)
     val coroutineScope = rememberCoroutineScope()
     val swipeableState = rememberSwipeableState(0, confirmStateChange = { newState ->
@@ -63,11 +65,11 @@ fun JDSToggleButton(
 
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .swipeable(
                 state = swipeableState,
                 anchors = anchors,
-                thresholds = { _, _ -> FractionalThreshold(0.3f) },
+                thresholds = { _, _ -> FractionalThreshold(0.5f) },
                 orientation = Orientation.Horizontal
             )
             .clickableSingle {
