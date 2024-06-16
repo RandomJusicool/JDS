@@ -66,7 +66,7 @@ fun JDSButtonPreview() {
             modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
             text = "text",
             enabled = true,
-            textColor = JDSColor.SYSTEM,
+            textColor = JDSColor.ERROR,
             backgroundColor = JDSColor.MAIN,
             onClick = {}
         )
@@ -74,7 +74,7 @@ fun JDSButtonPreview() {
             modifier = Modifier.padding(vertical = 16.dp, horizontal = 32.dp),
             text = "text",
             enabled = false,
-            textColor = JDSColor.SYSTEM,
+            textColor = JDSColor.ERROR,
             backgroundColor = JDSColor.MAIN,
             onClick = {}
         )
