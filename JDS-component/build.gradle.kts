@@ -1,6 +1,24 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("maven-publish")
+    id("kotlin-parcelize")
+    id("kotlin-kapt")
+}
+
+publishing {
+    afterEvaluate {
+        publishing {
+            publications {
+                register("release", MavenPublication::class) {
+                    from(components["release"])
+                    version = "1.0.1"
+                    artifactId = "JDS"
+                    groupId = "com.jusicool"
+                }
+            }
+        }
+    }
 }
 
 android {
