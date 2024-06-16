@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.example.jds_component.R
+import com.jusiCool.jds_component.R
 
 val pretendard = FontFamily(
     Font(R.font.pretendard),

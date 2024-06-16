@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.jds_component"
+    namespace = "com.jusiCool.jds_component"
     compileSdk = 34
 
     defaultConfig {
