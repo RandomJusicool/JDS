@@ -58,7 +58,7 @@ fun JDSToggleButton(
     val backgroundColor by remember {
         derivedStateOf {
             lerp(
-                JDSColor.MAIN, JDSColor.GRAY300,
+                JDSColor.MAIN, JDSColor.GRAY200,
                 swipeableState.offset.value / sizePx
             )
         }
