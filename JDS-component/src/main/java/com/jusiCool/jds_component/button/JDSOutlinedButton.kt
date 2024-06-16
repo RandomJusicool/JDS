@@ -22,8 +22,8 @@ fun JDSOutlinedButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
-    textColor: Color = JDSColor.MAIN500,
-    borderColor: Color = JDSColor.MAIN500,
+    textColor: Color = JDSColor.MAIN,
+    borderColor: Color = JDSColor.MAIN,
     backgroundColor: Color = JDSColor.WHITE,
     onClick: () -> Unit,
 ) {
@@ -74,7 +74,7 @@ fun JDSOutlinedButtonPreview() {
             text = "text",
             enabled = true,
             textColor = JDSColor.ERROR,
-            backgroundColor = JDSColor.MAIN500,
+            backgroundColor = JDSColor.MAIN,
             borderColor = JDSColor.Black,
             onClick = {}
         )
@@ -83,7 +83,7 @@ fun JDSOutlinedButtonPreview() {
             text = "text",
             enabled = false,
             textColor = JDSColor.ERROR,
-            backgroundColor = JDSColor.MAIN500,
+            backgroundColor = JDSColor.MAIN,
             borderColor = JDSColor.Black,
             onClick = {}
         )

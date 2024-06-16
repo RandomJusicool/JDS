@@ -3,7 +3,7 @@ package com.jusiCool.jds_component.color
 import androidx.compose.ui.graphics.Color
 
 object JDSColor {
-    val MAIN500 = Color(0xFF2756F1)
+    val MAIN = Color(0xFF2756F1)
     val Black = Color(0xFF000000)
     val WHITE = Color(0xFFFFFFFF)
 

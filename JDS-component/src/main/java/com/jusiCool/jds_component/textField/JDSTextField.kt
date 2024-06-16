@@ -69,7 +69,7 @@ fun JDSTextField(
             modifier = Modifier
                 .border(
                     width = 1.dp,
-                    color = if (isFocused.value && textFieldOutlineColor == JDSColor.GRAY100) JDSColor.MAIN500 else textFieldOutlineColor,
+                    color = if (isFocused.value && textFieldOutlineColor == JDSColor.GRAY100) JDSColor.MAIN else textFieldOutlineColor,
                     shape = RoundedCornerShape(size = 8.dp)
                 )
                 .height(54.dp)
@@ -107,7 +107,7 @@ fun JDSTextField(
 
         Text(
             text = supportText,
-            color = if (isError) JDSColor.ERROR else JDSColor.MAIN500,
+            color = if (isError) JDSColor.ERROR else JDSColor.MAIN,
             style = JDSTypography.labelLarge,
             modifier = if (!isError) Modifier
                 .align(Alignment.End)
@@ -138,7 +138,7 @@ fun JDSTextFieldPreview() {
             modifier = Modifier.width(312.dp),
             label = "아이디",
             textFieldInfo = "아이디를 입력해주세요",
-            textFieldOutlineColor = JDSColor.MAIN500,
+            textFieldOutlineColor = JDSColor.MAIN,
             textState = textState,
             onTextChange = onTextChange
         )

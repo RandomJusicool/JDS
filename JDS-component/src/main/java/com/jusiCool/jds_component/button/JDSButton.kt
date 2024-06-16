@@ -22,7 +22,7 @@ fun JDSButton(
     text: String,
     enabled: Boolean = true,
     textColor: Color = JDSColor.WHITE,
-    backgroundColor: Color = JDSColor.MAIN500,
+    backgroundColor: Color = JDSColor.MAIN,
     onClick: () -> Unit,
 ) {
     Column(
@@ -67,7 +67,7 @@ fun JDSButtonPreview() {
             text = "text",
             enabled = true,
             textColor = JDSColor.ERROR,
-            backgroundColor = JDSColor.MAIN500,
+            backgroundColor = JDSColor.MAIN,
             onClick = {}
         )
         JDSButton(
@@ -75,7 +75,7 @@ fun JDSButtonPreview() {
             text = "text",
             enabled = false,
             textColor = JDSColor.ERROR,
-            backgroundColor = JDSColor.MAIN500,
+            backgroundColor = JDSColor.MAIN,
             onClick = {}
         )
     }
