@@ -6,16 +6,14 @@ plugins {
     id("kotlin-kapt")
 }
 
-publishing {
-    afterEvaluate {
-        publishing {
-            publications {
-                register("release", MavenPublication::class) {
-                    from(components["release"])
-                    version = "1.0.1"
-                    artifactId = "JDS"
-                    groupId = "com.jusicool"
-                }
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                from(components["release"])
+                version="1.0.2"
+                artifactId="JDS"
+                groupId="com.github.jds"
             }
         }
     }
