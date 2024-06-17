@@ -1,6 +1,5 @@
 package com.jusiCool.jds_component.typography
 
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
