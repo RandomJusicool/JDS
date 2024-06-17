@@ -135,7 +135,7 @@ fun JDSTextFieldPreview() {
 
     Column {
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
@@ -144,7 +144,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.MAIN,
@@ -153,7 +153,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY200,
@@ -163,7 +163,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
@@ -174,7 +174,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
@@ -184,7 +184,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
@@ -194,7 +194,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
@@ -206,7 +206,7 @@ fun JDSTextFieldPreview() {
         )
 
         JDSTextField(
-            modifier = Modifier.width(312.dp),
+            modifier = Modifier.fillMaxWidth(),
             label = "아이디",
             placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
