@@ -42,7 +42,7 @@ fun JDSBottomSheet(
         ) {
             Text(
                 text = companyName,
-                style = JDSTypography.labelSmall,
+                style = JDSTypography.subTitle,
                 color = JDSColor.Black,
             )
             Text(
