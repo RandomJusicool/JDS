@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main  # 메인 브랜치에 푸시할 때마다 워크플로우 실행
+      - main 
 
 jobs:
   build:
@@ -13,10 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 17
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'adopt'
+          java-package: 'jdk'
+          architecture: 'x64'
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
