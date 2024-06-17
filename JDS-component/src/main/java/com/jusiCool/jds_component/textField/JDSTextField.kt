@@ -108,7 +108,7 @@ fun JDSTextField(
         Text(
             text = supportText,
             color = if (isError) JDSColor.ERROR else JDSColor.MAIN,
-            style = JDSTypography.labelLarge,
+            style = JDSTypography.label,
             modifier = if (!isError) Modifier
                 .align(Alignment.End)
                 .clickableSingle(

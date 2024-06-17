@@ -38,7 +38,7 @@ fun JDSArrowTopBar(
         startIcon()
         Text(
             text = betweenText,
-            style = JDSTypography.labelSmall,
+            style = JDSTypography.subTitle,
             color = JDSColor.Black
         )
         endIcon()
