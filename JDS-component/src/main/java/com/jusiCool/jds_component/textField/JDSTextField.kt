@@ -34,7 +34,7 @@ import com.jusiCool.jds_component.typography.JDSTypography
 fun JDSTextField(
     modifier: Modifier = Modifier,
     label: String,
-    textFieldInfo: String,
+    placeHolder: String,
     textState: String,
     textFieldOutlineColor: Color,
     stockUnitText:String = "",
@@ -97,7 +97,7 @@ fun JDSTextField(
                 ) {
                     if (textState.isEmpty()) {
                         Text(
-                            text = textFieldInfo,
+                            text = placeHolder,
                             color = if (textState.isEmpty()) JDSColor.GRAY2 else JDSColor.Black,
                             style = JDSTypography.bodySmall
                         )
@@ -137,7 +137,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
             textState = textState,
             onTextChange = onTextChange
@@ -146,7 +146,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.MAIN,
             textState = textState,
             onTextChange = onTextChange
@@ -155,7 +155,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY200,
             isEnabled = false,
             textState = textState,
@@ -165,7 +165,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
             supportText = "Error",
             isError = true,
@@ -176,7 +176,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
             textState = textState,
             onTextChange = onTextChange,
@@ -186,7 +186,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
             supportText = "영문, 숫자, 특수문자 중 2개 이상의 조합으로 8글자 이상",
             textState = textState,
@@ -196,7 +196,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.ERROR,
             supportText = "이메일 수정하기",
             textState = textState,
@@ -208,7 +208,7 @@ fun JDSTextFieldPreview() {
         JDSTextField(
             modifier = Modifier.width(312.dp),
             label = "아이디",
-            textFieldInfo = "아이디를 입력해주세요",
+            placeHolder = "아이디를 입력해주세요",
             textFieldOutlineColor = JDSColor.GRAY100,
             supportText = "이메일 수정하기",
             textState = textState,
