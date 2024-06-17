@@ -37,10 +37,12 @@ fun JDSTextField(
     textFieldInfo: String,
     textState: String,
     textFieldOutlineColor: Color,
+    stockUnitText:String = "",
     isEnabled: Boolean = true,
     isError: Boolean = false,
     supportText: String = "",
     supportTextClick: Boolean = false,
+    sellStock: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     onTextChange: (String) -> Unit,
     onClickSupportText: () -> Unit = {}
@@ -97,7 +99,14 @@ fun JDSTextField(
                         Text(
                             text = textFieldInfo,
                             color = if (textState.isEmpty()) JDSColor.GRAY2 else JDSColor.Black,
+                            style = JDSTypography.bodySmall
+                        )
+                    } else if(sellStock) {
+                        Text(
+                            text = stockUnitText,
+                            color = JDSColor.GRAY300,
                             style = JDSTypography.bodySmall,
+                            modifier = Modifier.align(Alignment.End)
                         )
                     }
                 }
@@ -194,6 +203,18 @@ fun JDSTextFieldPreview() {
             onTextChange = onTextChange,
             supportTextClick = true,
             onClickSupportText = {}
+        )
+
+        JDSTextField(
+            modifier = Modifier.width(312.dp),
+            label = "아이디",
+            textFieldInfo = "아이디를 입력해주세요",
+            textFieldOutlineColor = JDSColor.GRAY100,
+            supportText = "이메일 수정하기",
+            textState = textState,
+            onTextChange = onTextChange,
+            sellStock = true,
+            stockUnitText = "주"
         )
     }
 }
